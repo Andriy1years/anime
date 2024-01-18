@@ -1,0 +1,59 @@
+.left_panel {
+    border: solid;
+    position: absolute;
+    border-left: none;
+    border-top: none;
+    top: 0;
+    left: 0;
+    height: 95%;
+    padding-right: 30px;
+}
+
+
+.left_panel_app p {
+    background-color: #ffffff00;
+    color: #dcdcdca9;
+    font-size: 20px;
+    margin-bottom: 12px;
+    padding-left: 20px;
+    border-left: solid;
+    margin-left: 2px;
+    border-color: #c3c3c300;
+    cursor: pointer;
+}
+
+#button_home {
+    border-color: #c3c3c360
+}
+
+.home_left_panel {
+    margin-top: 20px;
+}
+
+
+.integration {
+    position: absolute;
+    bottom: 0;
+    margin-left: 10px;
+
+}
+
+.integration p {
+    color: #dcdcdca9;
+    margin-left: 5px;
+}
+
+.integration img {
+    width: 35px;
+    height: 50px;
+}
+
+.instagram,
+.tg,
+.GitHab {
+    display: flex;
+}
+
+.instagram a {
+   padding: 10px;
+}
