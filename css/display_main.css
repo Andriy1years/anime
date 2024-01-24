@@ -1,0 +1,11 @@
+.display_element h2 {
+    position: absolute;
+    left: 6em;
+    top: -25px;
+    color: #dcdcdca9;
+  font-size: 40px;
+ 
+}
+.soon,.for_me,.admin_panel {
+    display: none;
+}
