@@ -1,12 +1,13 @@
 .left_panel {
     border: solid;
-    position: absolute;
+    position: fixed;
     border-left: none;
     border-top: none;
     top: 0;
     left: 0;
     height: 95%;
     padding-right: 30px;
+    border-color: rgba(0, 0, 0, 0.595);
 }
 
 

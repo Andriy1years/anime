@@ -8,8 +8,6 @@ const for_me = document.querySelector('.for_me');
 const admin_panel = document.querySelector('.admin_panel');
 
 //left element
-
-
 button_home.addEventListener('click', () => {
     button_home.style.borderColor = '#c3c3c360';
     button_soon.style.borderColor = '#c3c3c300';
