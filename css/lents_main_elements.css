@@ -2,9 +2,10 @@
     display: flex;
     flex-wrap: wrap;
     position: absolute;
-    left: 12%;
-    top: 80px;
 
+    top: 80px;
+    left: 13em;
+    width: 90%;
 }
 
 .lents h3 {
@@ -44,6 +45,7 @@
 #information_for_nine_element,
 #information_for_seven_element {
     position: absolute;
+    z-index: 10;
     background-color: #faff6d;
     color: #000000;
     border-radius: 50%;
@@ -56,16 +58,33 @@
     cursor: help;
 }
 
+#information_for_home1_element {
+    position: absolute;
+    z-index: 10;
+    background-color: #6dffdd;
+    color: #000000;
+    border-radius: 50%;
+    margin-left: 200px;
+    margin-top: -13px;
+    width: 30px;
+    height: 25px;
+    text-align: center;
+    padding-top: 6px;
+    cursor: help;
+}
+
 #informarion_mesage_for_seven_element,
-#informarion_mesage_for_nine_element {
+#informarion_mesage_for_nine_element,
+#informarion_mesage_for_home1_element {
     display: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #a4a4a4;
     position: absolute;
     width: 130px;
     padding: 5px;
     border-radius: 10px;
     border-bottom-left-radius: 0px;
-    margin-left: 210px;
-    margin-top: -60px;
+    margin-left: 215px;
+    margin-top: -65px;
     cursor: default;
 }

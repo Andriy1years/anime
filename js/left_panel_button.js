@@ -56,7 +56,3 @@ button_admin_panel.addEventListener('click', () => {
     admin_panel.style.display = 'block';
 });
 
-
-
-//--------title element--------//
-
