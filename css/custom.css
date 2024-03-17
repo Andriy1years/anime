@@ -1,16 +1,41 @@
- body{
+ body {
     background-color: rgba(0, 0, 0, 0.859);
     overflow-x: hidden;
-    
-   }
 
-   body, button, p, h1, h2, h3, h4, h5, h6, div {
-      font-family: 'Courier New', Courier, monospace;
-   }
+ }
 
-   .main_elemens {
-      display: flex;
-    }
-    
+ body,
+ button,
+ p,
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6,
+ div {
+    font-family: 'Courier New', Courier, monospace;
+ }
 
-   
+
+ body::-webkit-scrollbar {
+    width: 15px;
+ }
+
+ body::-webkit-scrollbar-track {
+
+    background: #464646;
+ }
+
+ body::-webkit-scrollbar-thumb {
+    background: #929292;
+ }
+
+ body::-webkit-scrollbar-thumb:hover {
+    background: #818181;
+ }
+
+
+ .main_elemens {
+    display: flex;
+ }

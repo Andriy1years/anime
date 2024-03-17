@@ -7,6 +7,15 @@ const soon = document.querySelector('.soon');
 const for_me = document.querySelector('.for_me');
 const admin_panel = document.querySelector('.admin_panel');
 
+
+var homeElements = document.querySelectorAll('.home_element');
+
+
+var secondHomeElement = homeElements[1];
+console.log(secondHomeElement);
+
+secondHomeElement.style = "none";
+
 //left element
 button_home.addEventListener('click', () => {
     button_home.style.borderColor = '#c3c3c360';
