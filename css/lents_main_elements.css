@@ -42,8 +42,7 @@
     width: 210px;
 }
 
-#information_for_nine_element,
-#information_for_seven_element {
+#information_element{
     position: absolute;
     z-index: 10;
     background-color: #faff6d;
@@ -73,12 +72,11 @@
     cursor: help;
 }
 
-#informarion_mesage_for_seven_element,
-#informarion_mesage_for_nine_element,
+#informarion_mesage_element,
 #informarion_mesage_for_home1_element {
     display: none;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: #a4a4a4;
+    background-color: #263625;
     position: absolute;
     width: 130px;
     padding: 5px;
@@ -87,4 +85,5 @@
     margin-left: 215px;
     margin-top: -65px;
     cursor: default;
+    color: rgb(192, 192, 182);
 }

@@ -1,8 +1,12 @@
+.soon {
+    display: inline-block;
+}
+
 .soon_lents {
     display: flex;
     flex-wrap: wrap;
     position: absolute;
-    left: 12%;
+    left: 13em;
     top: 80px;
 
 }

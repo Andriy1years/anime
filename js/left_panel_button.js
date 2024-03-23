@@ -8,13 +8,11 @@ const for_me = document.querySelector('.for_me');
 const admin_panel = document.querySelector('.admin_panel');
 
 
-var homeElements = document.querySelectorAll('.home_element');
-
-
-var secondHomeElement = homeElements[1];
-console.log(secondHomeElement);
-
-secondHomeElement.style = "none";
+//онуление
+home.style.display = 'block';
+soon.style.display = 'none';
+for_me.style.display = 'none';
+admin_panel.style.display = 'none';
 
 //left element
 button_home.addEventListener('click', () => {
