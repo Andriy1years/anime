@@ -1,59 +1,25 @@
 const search = document.getElementById('search');
 const button_search = document.getElementById('search_button');
-const texts = [
-    document.querySelector("#h3_home_element1").innerText,
-    document.querySelector("#h3_home_element2").innerText,
-    document.querySelector("#h3_home_element3").innerText,
-    document.querySelector("#h3_home_element4").innerText,
-    document.querySelector("#h3_home_element5").innerText,
-    document.querySelector("#h3_home_element6").innerText,
-    document.querySelector("#h3_home_element7").innerText,
-    document.querySelector("#h3_home_element8").innerText,
-    document.querySelector("#h3_home_element9").innerText,
-    document.querySelector("#h3_home_element10").innerText,
-    document.querySelector("#h3_home_element11").innerText
-];
-let massiv = [];
 
+const h3Elements = document.querySelectorAll('h3');
 
-
-
-
-
+// Функция для подсветки букв в элементе
+function highlightLetters(element, text) {
+    const letters = element.innerText.split('');
+    letters.forEach(letter => {
+        if (text.includes(letter.toLowerCase())) {
+            element.innerHTML = element.innerHTML.replace(new RegExp(letter, 'gi'), `<span style="color: red;">${letter}</span>`);
+        } else {
+            element.innerHTML = element.innerHTML.replace(new RegExp(`<span style="color: red;">${letter}</span>`, 'gi'), letter);
+        }
+    });
+}
 
 button_search.addEventListener('click', () => {
-    let text = search.value;
-    massiv.pop();
-    massiv.push(text);
-    let letters = text.split(''); // Разбиваем текст на буквы
-    letters = letters.filter(letter => letter !== ' '); // Фильтруем пробелы
-    console.log(letters); // Выводим буквы в консоль
+    const text = search.value.toLowerCase();
 
-    for (let y = 0; y < massiv.length; y++) {
-        let wordLetters = massiv[y].split('');
-        for (let i = 0; i < wordLetters.length; i++) {
-            document.getElementById(wordLetters[i]).style.color = "red";    
-           
-        }
-    }
-    
-    
-   
+    // Проходим по каждому элементу h3 и подсвечиваем соответствующие буквы
+    h3Elements.forEach(element => {
+        highlightLetters(element, text);
+    });
 });
-// Проход по всем элементам массива texts и добавление стилей к каждому из них
-texts.forEach((text, index) => {
-    const element = document.querySelector(`#h3_home_element${index + 1}`);
-    let newText = "";
-    for (let i = 0; i < text.length; i++) {
-        if (text[i] === " ") {
-            newText += " ";
-        } else {
-            newText += `<span id="${text[i]}">${text[i]}</span>`;
-        }
-    }
-    element.innerHTML = newText;
-});
-
-
-
-
