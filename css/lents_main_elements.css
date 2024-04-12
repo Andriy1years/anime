@@ -13,7 +13,7 @@
     color: #dcdcdca9;
 }
 
-.lents div {
+.element {
     margin-right: 20px;
     margin-bottom: 20px;
     border: solid;
@@ -21,7 +21,6 @@
     padding: 20px;
     padding-bottom: 0;
     border-radius: 3px;
-
 }
 
 .information {

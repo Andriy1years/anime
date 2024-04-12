@@ -79,15 +79,35 @@ let pages = [
         name: "салатник чудаков",
         URL: "https://www.anilibria.tv/release/henjin-no-salad-bowl.html",
         img: "img/салатник чудаков.jpg",
+        ingorm: true,
         main: true
     },
+   
+    //soon------------------------------------------------------------------------------
     {
-    name: "салатник чудаков",
-    URL: "https://www.anilibria.tv/release/henjin-no-salad-bowl.html",
-    img: "img/салатник чудаков.jpg",
-    main: false
-}
-    //soon
+        name: "Ёко из Сэнгоку",
+        URL: "https://www.anilibria.tv/release/sengoku-youko.html",
+        img: "img/Ёко из Сэнгоку.jpg",
+        main: false
+    },
+    {
+        name: "Заботы запертой принцессы вампиров",
+        URL: "https://www.anilibria.tv/release/hikikomari-kyuuketsuki-no-monmon.html",
+        img: "img/заботы запертой принцессы вампиров.jpg",
+        main: false
+    },
+    {
+        name: "Рагна Багровый",
+        URL: "https://www.anilibria.tv/release/ragna-crimson.html",
+        img: "img/Рагна Багровый.jpg",
+        main: false
+    },
+    {
+        name: "Провожающая в последний путь Фрирен",
+        URL: "https://www.anilibria.tv/release/sousou-no-frieren.html",
+        img: "img/Провожающая в последний путь Фрирен.jpg",
+        main: false
+    },
 ];
 
 
@@ -99,16 +119,12 @@ let pages = [
 
 pages.forEach(anime => {
     let animeList = anime.main ? document.getElementById("lents") : document.getElementById("soon_lents");
-    
-    if (!anime.main) {
-        return; // Пропускаем выполнение скрипта для объектов с main: false
-    }
 
     let animeDiv = document.createElement("div");
     let animeTitle = document.createElement("h3");
     let animeLink = document.createElement("a");
     let animeImg = document.createElement("img");
-    animeDiv.classList.add("home_element");
+    animeDiv.classList.add("element");
     animeTitle.textContent = anime.name;
 
     animeImg.src = anime.img;

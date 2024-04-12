@@ -62,4 +62,3 @@ button_admin_panel.addEventListener('click', () => {
     for_me.style.display = 'none';
     admin_panel.style.display = 'block';
 });
-
