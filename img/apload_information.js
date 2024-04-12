@@ -82,7 +82,25 @@ let pages = [
         ingorm: true,
         main: true
     },
-   
+    {
+        name: "Неразумный ангел в танце с демоном",
+        URL: "https://www.anilibria.tv/release/oroka-na-tenshi-wa-akuma-to-odoru.html",
+        img: "img/Неразумный ангел в танце с демоном.jpg",
+        main: true
+    },
+    {
+        name: "МЭШЛ: Магия и мускулы",
+        URL: "https://www.anilibria.tv/release/mashle.html",
+        img: "img/Магия и мускулы.jpg",
+        main: true
+    },
+
+
+
+
+
+
+
     //soon------------------------------------------------------------------------------
     {
         name: "Ёко из Сэнгоку",
@@ -108,7 +126,108 @@ let pages = [
         img: "img/Провожающая в последний путь Фрирен.jpg",
         main: false
     },
+    {
+        name: "Небо в цвету!",
+        URL: "https://www.anilibria.tv/release/appare-ranman.html",
+        img: "img/Небо в цвету!.jpg",
+        main: false
+    },
+
+    {
+        name: "Перевоплотился в седьмого принца, так что я буду совершенствовать свою магию, как захочу",
+        URL: "https://www.anilibria.tv/release/tensei-shitara-dainana-ouji-datta-node-kimama-ni-majutsu-wo-kiwamemasu.html",
+        img: "img/Перевоплотился в седьмого принца, так что я буду совершенствовать свою магию, как захочу.jpg",
+        main: false
+    }, 
+     {
+        name: "Дюрарара!!",
+        URL: "https://www.anilibria.tv/release/durarara.html",
+        img: "img/Дюрарара!!.jpg",
+        main: false
+    }, 
+    {
+        name: "Дюрарара!! x2 / DRR 2",
+        URL: "https://www.anilibria.tv/release/drr-x2.html",
+        img: "img/Дюрарара!! x2.jpg",
+        main: false
+    }, 
+    {
+        name: "Мириады цветов фантомного мира",
+        URL: "https://www.anilibria.tv/release/musaigen-no-phantom-world.html",
+        img: "img/Мириады цветов фантомного мира.jpg",
+        main: false
+    },
+    {
+        name: "Волчица и пряности: Торговец встречает мудрую волчицу",
+        URL: "https://www.anilibria.tv/release/ookami-to-koushinryou-merchant-meets-the-wise-wolf.html",
+        img: "img/Торговец встречает мудрую волчицу.jpg",
+        main: false
+    },
+    {
+        name: "Одна комната, солнечный свет, ангел",
+        URL: "https://www.anilibria.tv/release/one-room-hiatari-futsuu-tenshi-tsuki.html",
+        img: "img/Одна комната, солнечный свет, ангел.jpg",
+        main: false
+    },
+    {
+        name: "Добро пожаловать в класс превосходства",
+        URL: "https://www.anilibria.tv/release/youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e.html",
+        img: "img/Добро пожаловать в класс превосходства.jpg",
+        main: false
+    },
+    {
+        name: "Класс убийц",
+        URL: "https://ru-7e439cdefda91c2e-fra.anilibria.sbs/release/ansatsu-kyoushitsu-klass-ubiyts.html",
+        img: "img/Класс убийц.jpg",
+        main: false
+    },
+    {
+        name: "Я, владыка демонов, взял эльфийку-рабыню в жёны. ",
+        URL: "https://www.anilibria.tv/release/maou-no-ore-ga-dorei-elf-wo-yome-ni-shitanda-ga-dou-medereba-ii.html",
+        img: "img/взял эльфийку-рабыню в жёны.jpg",
+        main: false
+    },
+    {
+        name: "Адский рай",
+        URL: "https://www.anilibria.tv/release/jigokuraku.html",
+        img: "img/Адский рай.jpg",
+        main: false
+    },
+    {
+        name: "Перевоплотился в седьмого принца, так что я буду совершенствовать свою магию, как захочу",
+        URL: "https://www.anilibria.tv/release/tensei-shitara-dainana-ouji-datta-node-kimama-ni-majutsu-wo-kiwamemasu.html",
+        img: "img/Перевоплотился в седьмого принца так что я буду совершенствовать свою магию, как захочу.jpg",
+        main: false
+    },
+    {
+        name: "Лунное путешествие приведёт к новому миру 2",
+        URL: "https://www.anilibria.tv/release/tsuki-ga-michibiku-isekai-douchuu.html",
+        img: "img/Лунное путешествие приведёт к новому миру 2.jpg",
+        main: false
+    },
+    {
+        name: "Мир по-прежнему красив",
+        URL: "https://anilibria.today/anime/mir-po-prezhnemu-krasiv.html",
+        img: "img/Мир по-прежнему красив.webp",
+        main: false
+    },
+    {
+        name: "Ангел по соседству",
+        URL: "https://anilibria.today/anime/mir-po-prezhnemu-krasiv.html",
+        img: "img/Ангел по соседству.jpg",
+        main: false
+    },
+    {
+        name: "Мир по-прежнему красив",
+        URL: "https://anilibria.today/anime/mir-po-prezhnemu-krasiv.html",
+        img: "img/Мир по-прежнему красив.jpg",
+        main: false
+    },
 ];
+
+
+
+
 
 
 
