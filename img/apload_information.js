@@ -217,12 +217,6 @@ let pages = [
         img: "img/Ангел по соседству.jpg",
         main: false
     },
-    {
-        name: "Мир по-прежнему красив",
-        URL: "https://anilibria.today/anime/mir-po-prezhnemu-krasiv.html",
-        img: "img/Мир по-прежнему красив.jpg",
-        main: false
-    },
 ];
 
 
