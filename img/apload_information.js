@@ -234,8 +234,8 @@ pages.forEach(anime => {
     let animeList = anime.main ? document.getElementById("lents") : document.getElementById("soon_lents");
 
     let animeDiv = document.createElement("div");
-    let animeTitle = document.createElement("h3");
     let animeLink = document.createElement("a");
+    let animeTitle = document.createElement("h3");
     let animeImg = document.createElement("img");
     animeDiv.classList.add("element");
     animeTitle.textContent = anime.name;
@@ -272,5 +272,5 @@ pages.forEach(anime => {
     animeDiv.appendChild(animeLink);
     animeList.appendChild(animeDiv);
     animeLink.appendChild(animeImg);
-    animeDiv.appendChild(animeTitle);
+    animeLink.appendChild(animeTitle);
 });
