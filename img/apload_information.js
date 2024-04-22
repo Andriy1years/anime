@@ -94,7 +94,12 @@ let pages = [
         img: "img/Магия и мускулы.jpg",
         main: true
     },
-
+    {
+        name: "Класс убийц",
+        URL: "https://ru-7e439cdefda91c2e-fra.anilibria.sbs/release/ansatsu-kyoushitsu-klass-ubiyts.html",
+        img: "img/Класс убийц.jpg",
+        main: true
+    },
 
  
 
@@ -175,12 +180,7 @@ let pages = [
         img: "img/Добро пожаловать в класс превосходства.jpg",
         main: false
     },
-    {
-        name: "Класс убийц",
-        URL: "https://ru-7e439cdefda91c2e-fra.anilibria.sbs/release/ansatsu-kyoushitsu-klass-ubiyts.html",
-        img: "img/Класс убийц.jpg",
-        main: false
-    },
+    
     {
         name: "Я, владыка демонов, взял эльфийку-рабыню в жёны. ",
         URL: "https://www.anilibria.tv/release/maou-no-ore-ga-dorei-elf-wo-yome-ni-shitanda-ga-dou-medereba-ii.html",

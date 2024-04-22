@@ -1,36 +1,46 @@
-const express = require('express');
-const multer = require('multer');
-const path = require('path');
+const http = require('http');
+const fs = require('fs');
+const formidable = require('formidable');
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+const server = http.createServer((req, res) => {
+    if (req.url === '/upload' && req.method.toLowerCase() === 'post') {
+        const form = new formidable.IncomingForm();
+        form.parse(req, (err, fields, files) => {
+            if (err) {
+                console.error('Error parsing form data:', err);
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.end('Internal Server Error');
+                return;
+            }
 
-// Указываем путь к папке для сохранения изображений
-const imgFolderPath = path.join(__dirname, 'img');
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-  });
-  
-// Настройка multer для загрузки файлов
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, imgFolderPath);
-    },
-    filename: (req, file, cb) => {
-        cb(null, file.originalname);
+            const oldpath = files.image.path;
+            const newpath = __dirname + '/uploads/' + files.image.name;
+            fs.rename(oldpath, newpath, (err) => {
+                if (err) {
+                    console.error('Error moving file:', err);
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Internal Server Error');
+                    return;
+                }
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.end('<div class="add_information">Изображение успешно загружено!</div>');
+            });
+        });
+        return;
     }
+
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    fs.readFile('index.html', (err, data) => {
+        if (err) {
+            console.error('Error reading HTML file:', err);
+            res.writeHead(500, { 'Content-Type': 'text/plain' });
+            res.end('Internal Server Error');
+            return;
+        }
+        res.end(data);
+    });
 });
-const upload = multer({ storage });
 
-// Обработка POST-запроса на загрузку изображений
-app.post('/upload', upload.single('image'), (req, res) => {
-    res.send('Изображение успешно загружено');
-});
-
-
-  
-
-app.listen(PORT, () => {
-    console.log(`Сервер запущен на порту ${PORT}`);
+server.listen(3000, () => {
+    console.log('Server running at http://localhost:3000/');
 });

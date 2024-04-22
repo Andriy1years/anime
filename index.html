@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -14,10 +14,11 @@
   
 
     <link rel="icon" href="svg/anime-girl-with-ponytail_icon-icons.com_68047.svg">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:;">
 </head>
 
 <body>
-
+    
     <!--main_elemens-->
     <div class="main_elemens">
         <div class="left_panel">
@@ -79,6 +80,8 @@
 
             </div>
 
+            .i'm_watching
+
             <!--soon-->
             <div class="soon">
                 <h2  class="soon_title">
@@ -101,7 +104,7 @@
                 Admin panel
             </h2>
 
-            <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:;">
+           
 
             <h2>Загрузить изображение</h2>
             <form action="/upload" method="post" enctype="multipart/form-data">
@@ -114,14 +117,15 @@
             </div>
         </div>
     </div>
-
-    </div>
+   
+   
     <script src="server.js"></script>
     <script src="js/h3_names.js"></script>
     <script src="js/information.js"></script>
     <script src="js/admin_panel.js"></script>
     <script src="js/left_panel_button.js"></script>
     <script src="img/apload_information.js"></script>
+    
     
    
 </body>
