@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -11,17 +11,25 @@
     <link rel="stylesheet" href="css/lents_main_elements.css">
     <link rel="stylesheet" href="css/admin_panel.css">
     <link rel="stylesheet" href="css/lents_soon_elements.css">
-  
+    <link rel="stylesheet" href="css/mobile.css">
+
 
     <link rel="icon" href="svg/anime-girl-with-ponytail_icon-icons.com_68047.svg">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 </head>
 
 <body>
-    
+
     <!--main_elemens-->
     <div class="main_elemens">
         <div class="left_panel">
+            <div class="left_burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="not_burger">
             <div class="left_panel_app">
                 <div class="home_left_panel">
                     <p id="button_home">Home</p>
@@ -53,6 +61,7 @@
                 </div>
             </div>
         </div>
+        </div>
 
         <div class="display_element">
 
@@ -61,7 +70,7 @@
                 <h2 class="home_title">
                     Home
                 </h2>
-              
+
                 <div class="lents" id="lents">
                     <div class="element">
                         <div class="information">
@@ -75,58 +84,46 @@
                             <h3 id="h3_home_element1">Звёздное дитя</h3>
                         </a>
                     </div>
-    
+
                 </div>
 
             </div>
 
-            .i'm_watching
-
+            <!--.i'm_watching-->
             <!--soon-->
             <div class="soon">
-                <h2  class="soon_title">
+                <h2 class="soon_title">
                     Soon
                 </h2>
                 <div class="soon_lents" id="soon_lents">
-            
+
                 </div>
             </div>
-        </div> 
-        <!--for me-->
-        <div class="for_me">
-            <h2 class="for_me_title">
-                For me
-            </h2>
-        </div>
-        <!--admin panel-->
-        <div class="admin_panel">
-            <h2 class="admid_panel_title">
-                Admin panel
-            </h2>
-
-           
-
-            <h2>Загрузить изображение</h2>
-            <form action="/upload" method="post" enctype="multipart/form-data">
-                <input type="file" name="image" accept="image/*">
-                <button type="submit">Загрузить</button>
-            </form>
-
-            <div class="add_informasion">
-
+            <div class="for_me">
+                <h2 class="for_me_title">
+                    For me
+                </h2>
+            </div>
+            <!--admin panel-->
+            <div class="admin_panel">
+                <h2 class="admid_panel_title">
+                    Admin panel
+                </h2>
             </div>
         </div>
     </div>
-   
-   
-    <script src="server.js"></script>
+
+
+
     <script src="js/h3_names.js"></script>
     <script src="js/information.js"></script>
     <script src="js/admin_panel.js"></script>
     <script src="js/left_panel_button.js"></script>
+    <script src="js/burger.js"></script>
     <script src="img/apload_information.js"></script>
-    
-    
-   
+
+
+
 </body>
+
 </html>
