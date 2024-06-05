@@ -214,7 +214,7 @@ let pages = [
     {
         name: "Ангел по соседству",
         URL: "https://anilibria.today/anime/mir-po-prezhnemu-krasiv.html",
-        img: "img/Ангел по соседству.jpg",
+        img: "https://static-libria.weekstorm.us/storage/releases/posters/9334/cl1SY8vAlwrPCnzq__3611e6b98c91395cc85d7e8b7ddc21a3.jpg",
         main: false
     },
 ];
