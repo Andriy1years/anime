@@ -259,12 +259,12 @@ pages.forEach(anime => {
         informationDiv.appendChild(informationTitle);
         informationDiv.appendChild(informationMessage);
 
-        // Добавляем обработчик события для показа сообщения при наведении на "i"
+
         informationTitle.addEventListener("mouseover", function () {
             informationMessage.style.display = "block";
         });
 
-        // Добавляем обработчик события для скрытия сообщения при уходе курсора с "i"
+        
         informationTitle.addEventListener("mouseout", function () {
             informationMessage.style.display = "none";
         });
