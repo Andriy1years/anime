@@ -101,7 +101,7 @@ let pages = [
         main: true
     },
 
- 
+
 
 
 
@@ -143,19 +143,19 @@ let pages = [
         URL: "https://www.anilibria.tv/release/tensei-shitara-dainana-ouji-datta-node-kimama-ni-majutsu-wo-kiwamemasu.html",
         img: "img/Перевоплотился в седьмого принца, так что я буду совершенствовать свою магию, как захочу.jpg",
         main: false
-    }, 
-     {
+    },
+    {
         name: "Дюрарара!!",
         URL: "https://www.anilibria.tv/release/durarara.html",
         img: "img/Дюрарара!!.jpg",
         main: false
-    }, 
+    },
     {
         name: "Дюрарара!! x2 / DRR 2",
         URL: "https://www.anilibria.tv/release/drr-x2.html",
         img: "img/Дюрарара!! x2.jpg",
         main: false
-    }, 
+    },
     {
         name: "Мириады цветов фантомного мира",
         URL: "https://www.anilibria.tv/release/musaigen-no-phantom-world.html",
@@ -180,7 +180,7 @@ let pages = [
         img: "img/Добро пожаловать в класс превосходства.jpg",
         main: false
     },
-    
+
     {
         name: "Я, владыка демонов, взял эльфийку-рабыню в жёны. ",
         URL: "https://www.anilibria.tv/release/maou-no-ore-ga-dorei-elf-wo-yome-ni-shitanda-ga-dou-medereba-ii.html",
@@ -203,19 +203,19 @@ let pages = [
         name: "Лунное путешествие приведёт к новому миру 2",
         URL: "https://www.anilibria.tv/release/tsuki-ga-michibiku-isekai-douchuu.html",
         img: "img/Лунное путешествие приведёт к новому миру 2.jpg",
-        main: false
+        main: 1
     },
     {
         name: "Мир по-прежнему красив",
         URL: "https://anilibria.today/anime/mir-po-prezhnemu-krasiv.html",
         img: "img/Мир по-прежнему красив.webp",
-        main: false
+        main: 2
     },
     {
         name: "Ангел по соседству",
         URL: "https://anilibria.today/anime/mir-po-prezhnemu-krasiv.html",
         img: "https://static-libria.weekstorm.us/storage/releases/posters/9334/cl1SY8vAlwrPCnzq__3611e6b98c91395cc85d7e8b7ddc21a3.jpg",
-        main: false
+        main: 3
     },
 ];
 
@@ -231,46 +231,24 @@ let pages = [
 //не трогать
 
 pages.forEach(anime => {
-    let animeList = anime.main ? document.getElementById("lents") : document.getElementById("soon_lents");
+    let animeList = document.querySelectorAll(".anime-list");
+    animeList.forEach(list => {
+        if (list.dataset.main == anime.main) {
+            let animeDiv = document.createElement("div");
+            let animeLink = document.createElement("a");
+            let animeTitle = document.createElement("h3");
+            let animeImg = document.createElement("img");
+            animeDiv.classList.add("element");
+            animeTitle.textContent = anime.name;
 
-    let animeDiv = document.createElement("div");
-    let animeLink = document.createElement("a");
-    let animeTitle = document.createElement("h3");
-    let animeImg = document.createElement("img");
-    animeDiv.classList.add("element");
-    animeTitle.textContent = anime.name;
+            animeImg.src = anime.img;
+            animeImg.alt = anime.name;
+            animeLink.href = anime.URL;
 
-    animeImg.src = anime.img;
-    animeImg.alt = anime.name;
-    animeLink.href = anime.URL;
-
-    if (anime.ingorm) {
-        let informationDiv = document.createElement("div");
-        informationDiv.classList.add("information");
-
-        let informationTitle = document.createElement("p");
-        informationTitle.id = "information_element";
-        informationTitle.textContent = "i";
-
-        let informationMessage = document.createElement("p");
-        informationMessage.id = "informarion_mesage_element";
-        informationMessage.textContent = "Это аниме еще не полностью вышло";
-        animeDiv.appendChild(informationDiv);
-        informationDiv.appendChild(informationTitle);
-        informationDiv.appendChild(informationMessage);
-
-
-        informationTitle.addEventListener("mouseover", function () {
-            informationMessage.style.display = "block";
-        });
-
-        
-        informationTitle.addEventListener("mouseout", function () {
-            informationMessage.style.display = "none";
-        });
-    }
-    animeDiv.appendChild(animeLink);
-    animeList.appendChild(animeDiv);
-    animeLink.appendChild(animeImg);
-    animeLink.appendChild(animeTitle);
+            animeDiv.appendChild(animeLink);
+            list.appendChild(animeDiv);
+            animeLink.appendChild(animeImg);
+            animeLink.appendChild(animeTitle);
+        }
+    });
 });

@@ -1,45 +1,41 @@
-const express = require('express');
-const path = require('path');
-const db = require('./database'); // Подключаем наш модуль базы данных
-const app = express();
-const port = process.env.PORT || 3000;
+const http = require('http');
+const fs = require('fs');
 
-// Указываем Express обслуживать статические файлы из директории "public"
-app.use(express.static(path.join(__dirname, 'public')));
+// Порт, на котором будет работать ваш сервер
+const port = 3000;
 
-// Добавляем middleware для обработки JSON
-app.use(express.json());
-
-// Маршрут для главной страницы
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-// Маршрут для добавления пользователя
-app.post('/users', (req, res) => {
-  const { name, email } = req.body;
-  const query = 'INSERT INTO users (name, email) VALUES (?, ?)';
-  db.run(query, [name, email], function(err) {
-    if (err) {
-      res.status(500).json({ error: err.message });
-    } else {
-      res.status(201).json({ id: this.lastID });
+// Функция для чтения JSON-файла
+function loadAnimeData(filePath) {
+    try {
+        const data = fs.readFileSync(filePath, 'utf8');
+        return JSON.parse(data);
+    } catch (error) {
+        console.error('Ошибка чтения файла:', error);
+        return null;
     }
-  });
-});
+}
 
-// Маршрут для получения всех пользователей
-app.get('/users', (req, res) => {
-  const query = 'SELECT * FROM users';
-  db.all(query, [], (err, rows) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
+// Путь к вашему JSON-файлу
+const filePath = 'anime.json';
+
+// Создаем HTTP-сервер
+const server = http.createServer((req, res) => {
+    // Загружаем данные из файла
+    const animeList = loadAnimeData(filePath);
+
+    // Проверяем, успешно ли загружены данные
+    if (animeList) {
+        // Отправляем данные клиенту
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(animeList));
     } else {
-      res.json({ users: rows });
+        // Если возникла ошибка при загрузке данных, отправляем сообщение об ошибке
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+        res.end('Ошибка загрузки данных об аниме.');
     }
-  });
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+// Запускаем сервер на указанном порту
+server.listen(port, () => {
+    console.log(`Сервер запущен на порту ${port}`);
 });
