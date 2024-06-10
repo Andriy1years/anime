@@ -1,41 +1,56 @@
-const http = require('http');
-const fs = require('fs');
+const express = require('express');
+const mysql = require('mysql2');
+const path = require('path');
 
-// Порт, на котором будет работать ваш сервер
+const app = express();
 const port = 3000;
 
-// Функция для чтения JSON-файла
-function loadAnimeData(filePath) {
-    try {
-        const data = fs.readFileSync(filePath, 'utf8');
-        return JSON.parse(data);
-    } catch (error) {
-        console.error('Ошибка чтения файла:', error);
-        return null;
-    }
-}
-
-// Путь к вашему JSON-файлу
-const filePath = 'anime.json';
-
-// Создаем HTTP-сервер
-const server = http.createServer((req, res) => {
-    // Загружаем данные из файла
-    const animeList = loadAnimeData(filePath);
-
-    // Проверяем, успешно ли загружены данные
-    if (animeList) {
-        // Отправляем данные клиенту
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(animeList));
-    } else {
-        // Если возникла ошибка при загрузке данных, отправляем сообщение об ошибке
-        res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.end('Ошибка загрузки данных об аниме.');
-    }
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root', // Имя пользователя MySQL
+    password: '6Ce23_k_k_P', // Пароль MySQL (оставьте пустым, если вы не установили пароль)
+    database: 'mydatabase' // Имя вашей базы данных
 });
 
-// Запускаем сервер на указанном порту
-server.listen(port, () => {
-    console.log(`Сервер запущен на порту ${port}`);
+connection.connect((err) => {
+  if (err) {
+    console.error('Ошибка подключения к базе данных MySQL: ' + err.stack);
+    return;
+  }
+  console.log('Подключено к базе данных MySQL с id ' + connection.threadId);
+});
+
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.post('/add-user', (req, res) => {
+  const { username, password } = req.body;
+
+  if (!username || !password) {
+    return res.status(400).json({ error: 'Username and password are required' });
+  }
+
+  const query = 'INSERT INTO users (username, password) VALUES (?, ?)';
+  connection.execute(query, [username, password], (err, results) => {
+    if (err) {
+      console.error('Error inserting data: ' + err.stack);
+      return res.status(500).json({ error: 'Database error' });
+    }
+    res.status(200).json({ message: 'User added successfully', userId: results.insertId });
+  });
+});
+
+app.get('/users', (req, res) => {
+  const query = 'SELECT username FROM users';
+  connection.query(query, (err, results) => {
+    if (err) {
+      console.error('Error fetching data: ' + err.stack);
+      return res.status(500).json({ error: 'Database error' });
+    }
+    res.status(200).json(results);
+  });
+});
+
+app.listen(port, () => {
+  console.log(`Сервер запущен на порту ${port}`);
 });
