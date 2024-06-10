@@ -17,7 +17,7 @@ im_watching.style.display = 'none';
 soon.style.display = 'none';
 for_me.style.display = 'none';
 admin_panel.style.display = 'none';
-
+ 
 //left element
 button_home.addEventListener('click', () => {
     button_home.style.borderColor = '#c3c3c360';
