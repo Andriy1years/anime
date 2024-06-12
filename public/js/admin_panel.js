@@ -1,10 +1,26 @@
-document.getElementById('userForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+  const userForm = document.getElementById('userForm');
+  const userList = document.getElementById('userList');
 
+  // Загрузка списка пользователей при загрузке страницы
+  fetch('/users')
+    .then(response => response.json())
+    .then(data => {
+      userList.innerHTML = '';
+      data.users.forEach(user => {
+        const li = document.createElement('li');
+        li.textContent = user.username;
+        userList.appendChild(li);
+      });
+    });
+
+  // Добавление нового пользователя
+  userForm.addEventListener('submit', function(event) {
+    event.preventDefault();
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    fetch('/add-user', {
+    fetch('/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -12,10 +28,12 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
       body: JSON.stringify({ username, password })
     })
     .then(response => response.json())
-    .then(data => {
-      alert(data.message);
+    .then(user => {
+      const li = document.createElement('li');
+      li.textContent = user.username;
+      userList.appendChild(li);
+      userForm.reset();
     })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+    .catch(error => console.error('Ошибка:', error));
   });
+});

@@ -40,9 +40,3 @@
     display: flex;
  }
 
- .userForm {
-   position: absolute;
-   z-index: 2;
-   margin-top: 100px;
-   margin-left: 200px;
- }
