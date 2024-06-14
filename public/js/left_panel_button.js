@@ -12,11 +12,11 @@ const im_watching = document.querySelector('.im_watching');
 
 
 //обнуление
-home.style.display = 'block';
+home.style.display = 'none';
 im_watching.style.display = 'none';
 soon.style.display = 'none';
 for_me.style.display = 'none';
-admin_panel.style.display = 'none';
+admin_panel.style.display = 'block';
  
 //left element
 button_home.addEventListener('click', () => {

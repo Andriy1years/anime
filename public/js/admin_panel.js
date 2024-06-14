@@ -1,39 +1,17 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const userForm = document.getElementById('userForm');
-  const userList = document.getElementById('userList');
-
-  // Загрузка списка пользователей при загрузке страницы
-  fetch('/users')
-    .then(response => response.json())
-    .then(data => {
-      userList.innerHTML = '';
-      data.users.forEach(user => {
-        const li = document.createElement('li');
-        li.textContent = user.username;
-        userList.appendChild(li);
-      });
+fetch('/animes')
+  .then(response => response.json())
+  .then(data => {
+    const animeList = document.getElementById('anime-list');
+    data.forEach(anime => {
+      const animeItem = document.createElement('div');
+      animeItem.innerHTML = `
+        <h1>${anime.name}</h1>
+        <a href="${anime.url}" target="_blank">
+          <img src="${anime.img}" alt="${anime.name}" width="200">
+        </a>
+        <p>Main: ${anime.main}</p>
+      `;
+      animeList.appendChild(animeItem);
     });
-
-  // Добавление нового пользователя
-  userForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    fetch('/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ username, password })
-    })
-    .then(response => response.json())
-    .then(user => {
-      const li = document.createElement('li');
-      li.textContent = user.username;
-      userList.appendChild(li);
-      userForm.reset();
-    })
-    .catch(error => console.error('Ошибка:', error));
-  });
-});
+  })
+  .catch(error => console.error('Ошибка загрузки данных:', error));

@@ -1,4 +1,6 @@
 .userForm {
+    margin-left: 200px;
+    margin-top: 200px;
     position: absolute;
     z-index: 2;
 }

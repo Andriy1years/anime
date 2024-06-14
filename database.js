@@ -1,19 +1,35 @@
-const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
+const mysql = require('mysql2');
+const bcrypt = require('bcrypt');
 
-// Создаем подключение к базе данных SQLite
-const dbPath = path.resolve(__dirname, 'database.sqlite');
-const db = new sqlite3.Database(dbPath);
-
-// Создаем таблицу users, если она не существует
-db.serialize(() => {
-  db.run(`
-    CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      username TEXT NOT NULL,
-      password TEXT NOT NULL
-    )
-  `);
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '6Ce23_k_k_P',
+  database: 'animeList'
 });
 
-module.exports = db;
+connection.connect((err) => {
+  if (err) {
+    console.error('Ошибка подключения к базе данных:', err);
+    return;
+  }
+  console.log('Успешное подключение к базе данных');
+});
+
+// Создание таблицы
+const createTableQuery = `
+  CREATE TABLE IF NOT EXISTS animes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    url VARCHAR(255) NOT NULL,
+    img VARCHAR(255) NOT NULL,
+    main INT NOT NULL
+  )
+`;
+
+connection.query(createTableQuery, (err, results) => {
+  if (err) throw err;
+  console.log('Таблица создана или уже существует');
+});
+
+module.exports = connection;
