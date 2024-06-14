@@ -2,7 +2,7 @@ const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
 
 const connection = mysql.createConnection({
-  host: 'localhost',
+  host: 'https://anime-five-flame.vercel.app',
   user: 'root',
   password: '6Ce23_k_k_P',
   database: 'animeList'
